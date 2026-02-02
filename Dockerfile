@@ -53,6 +53,6 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-EXPOSE 3003
+EXPOSE 23005
 
 CMD ["npm", "run", "dev"]

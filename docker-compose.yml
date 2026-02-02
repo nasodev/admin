@@ -7,7 +7,7 @@ services:
       target: development
 
     ports:
-      - "23005:3003"
+      - "23005:23005"
     volumes:
       - .:/app
       - /app/node_modules
