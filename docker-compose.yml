@@ -1,14 +1,22 @@
-# admin/docker-compose.yml
-version: '3.8'
+name: funq-admin
 
 services:
   admin:
-    build: .
+    build:
+      context: .
+      target: development
+
     ports:
-      - "23003:3000"
-    environment:
-      - NODE_ENV=development
+      - "23005:3003"
     volumes:
       - .:/app
       - /app/node_modules
       - /app/.next
+    environment:
+      - NODE_ENV=development
+
+    labels:
+      - "com.funq.project=true"
+      - "com.funq.name=admin"
+
+    restart: unless-stopped
