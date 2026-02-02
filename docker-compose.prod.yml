@@ -1,0 +1,26 @@
+name: funq-admin
+
+services:
+  admin:
+    image: ghcr.io/nasodev/admin:latest
+    container_name: funq-admin
+
+    ports:
+      - "23005:3000"
+
+    env_file:
+      - /home/funq/dev/config/admin/.env.prod
+
+    networks:
+      - funq-network
+
+    labels:
+      - "com.funq.project=true"
+      - "com.funq.name=admin"
+
+    restart: unless-stopped
+
+networks:
+  funq-network:
+    name: funq-network
+    external: true
